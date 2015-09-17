@@ -12,6 +12,10 @@
     font-weight: 500;
 }
 
+.sly .settings-parameter {
+    vertical-align: top;
+}
+
 .disabled-toolbar-button {
     opacity: 0.4;
     pointer-events: none;
@@ -45,4 +49,9 @@
 
 #sly-status-aem.sly-status-active {
     background-position: 0px -96px !important;
+}
+
+.sly .multifield-wrapper {
+    display: block;
+    padding-bottom: 5px;
 }

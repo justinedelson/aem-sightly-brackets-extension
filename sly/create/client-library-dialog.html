@@ -1,0 +1,96 @@
+{{!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+  ~
+  ~ Licensed under the Apache License 2.0.
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--}}
+<div class="sly modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{Strings.CREATE_CLIENT_LIBRARY}}</h1>
+    </div>
+    <div class="modal-body">
+        <div class="field-container">
+            <form class="form-horizontal">
+                <fieldset>
+                    <table>
+                        <tr>
+                            <td class="settings-parameter">{{Strings.NODE_NAME}}:</td>
+                            <td><input type="text" value="{{nodeName}}" name="nodeName"/></td>
+                        </tr>
+                        <tr>
+                            <td class="settings-parameter">{{Strings.CATEGORIES}}:</td>
+                            <td>
+                                {{#categories}}
+                                    <div class="multifield-wrapper"><input type="text" value="{{this}}" name="categories"/></div>
+                                {{/categories}}
+                                {{^categories}}
+                                    <div class="multifield-wrapper"><input type="text" value="" name="categories"/></div>
+                                {{/categories}}
+                                <button id="add-category">{{Strings.BUTTON_ADD}}</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="settings-parameter">{{Strings.DEPENDENCIES}}:</td>
+                            <td>
+                                {{#dependencies}}
+                                    <div class="multifield-wrapper"><input type="text" value="{{this}}" name="dependencies"/></div>
+                                {{/dependencies}}  
+                                {{^dependencies}}
+                                    <div class="multifield-wrapper"><input type="text" value="" name="dependencies"/></div>
+                                {{/dependencies}}  
+                                <button id="add-dependency">{{Strings.BUTTON_ADD}}</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="settings-parameter">{{Strings.EMBEDS}}:</td>
+                            <td>
+                                {{#embed}}
+                                    <div class="multifield-wrapper"><input type="text" value="{{this}}" name="embed"/></div>
+                                {{/embed}}  
+                                {{^embed}}
+                                    <div class="multifield-wrapper"><input type="text" value="" name="embed"/></div>
+                                {{/embed}}  
+                                <button id="add-embed">{{Strings.BUTTON_ADD}}</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="settings-parameter">{{Strings.CLIENT_LIBRARY_CSS}}:</td>
+                            <td><input type="checkbox" value="true" name="hasCss" {{#hasCss}}checked{{/hasCss}}/></td>
+                        </tr>
+                        <tr>
+                            <td class="settings-parameter">{{Strings.CLIENT_LIBRARY_JS}}:</td>
+                            <td><input type="checkbox" value="true" name="hasJs" {{#hasJs}}checked{{/hasJs}}/></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+            {{#errorMessage}}
+            <div class="alert">{{{errorMessage}}}</div>
+            {{/errorMessage}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">{{Strings.BUTTON_CANCEL}}</button>
+        <button class="dialog-button btn primary" data-button-id="ok">{{Strings.BUTTON_OK}}</button>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function addMultifield($target, name) {
+            $target.before('<div class="multifield-wrapper"><input type="text" name="' + name + '"/></div>')
+        }
+        
+        $("#add-category").click(function(e) {
+            addMultifield($(e.target), 'categories');
+            e.preventDefault();
+        });
+        $("#add-dependency").click(function(e) {
+            addMultifield($(e.target), 'dependencies');
+            e.preventDefault();
+        });
+        $("#add-embed").click(function(e) {
+            addMultifield($(e.target), 'embed');
+            e.preventDefault();
+        });
+    });
+</script>

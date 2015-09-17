@@ -33,7 +33,8 @@ define(function (require, exports, module) {
         slingJSON           = JSON.parse(SLYSling),
         SLYDictionary       = $.extend(true, defaultJSON, cqJSON, slingJSON),
         AppInit             = brackets.getModule('utils/AppInit'),
-        ExtensionUtils      = brackets.getModule('utils/ExtensionUtils');
+        ExtensionUtils      = brackets.getModule('utils/ExtensionUtils'),
+        CreateClientLibrary = require('sly/create/CreateClientLibrary');
 
     AppInit.appReady(function () {
         try {
@@ -56,6 +57,7 @@ define(function (require, exports, module) {
                     console.log('Cannot load module ' + failed);
                 }
             );
+            CreateClientLibrary.load(SLYDictionary);
             ExtensionUtils.loadStyleSheet(module, 'sly/styles/sly.css').done();
         } catch (e) {
             console.error('unable to correctly load sightly extension : ' + e);

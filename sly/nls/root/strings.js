@@ -59,6 +59,20 @@ define({
     SYNC_STATUS_DELETED_FROM_REMOTE                  : 'removed - the file was deleted on the server',
 
     // Synchronization panel
-    SYNC_PANEL_CLEAR                                 : 'Clear results'
+    SYNC_PANEL_CLEAR                                 : 'Clear results',
+
+    CREATE_CLIENT_LIBRARY                            : 'Create Client Library',
+    NODE_NAME                                        : 'Node Name',
+    CATEGORIES                                       : 'Categories',
+    DEPENDENCIES                                     : 'Dependencies',
+    EMBEDS                                           : 'Embedded Client Libraries',
+    BUTTON_ADD                                       : 'Add',
+    CLIENT_LIBRARY_CSS                               : 'Has CSS?',
+    CLIENT_LIBRARY_JS                                : 'Has JavaScript?',
+    CLIENT_LIBRARY_NODE_NAME_REQUIRED                : 'Node name must be provided',
+    CLIENT_LIBRARY_EXISTS                            : 'The Client Library Folder already exists.',
+    
+    
+    ERROR                                            : 'Error'
 
 });
